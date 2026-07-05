@@ -18,6 +18,7 @@ NAPOK = ["hétfő", "kedd", "szerda", "csütörtök", "péntek", "szombat", "vas
 
 # Magyar idő (nyáron UTC+2)
 ma = (datetime.now(timezone.utc) + timedelta(hours=2)).date()
+ma = date(2026, 7, 6)  # TESZT - torlendo
 
 if not (START <= ma <= END):
     print(f"Ma ({ma}) nincs tananyag – a tanoda {START} és {END} között tart.")
