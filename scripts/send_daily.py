@@ -11,7 +11,7 @@ from datetime import date, datetime, timedelta, timezone
 from email.message import EmailMessage
 from pathlib import Path
 
-START = date(2026, 7, 6)
+START = date(2026, 7, 5)
 END = date(2026, 8, 31)
 ASCII_NAP = ["hetfo", "kedd", "szerda", "csutortok", "pentek", "szombat", "vasarnap"]
 NAPOK = ["hétfő", "kedd", "szerda", "csütörtök", "péntek", "szombat", "vasárnap"]
