@@ -1,0 +1,22 @@
+name: Napi tanoda email
+
+on:
+  schedule:
+    - cron: "0 4 * * *"   # minden nap 4:00 UTC = 6:00 magyar nyári idő
+  workflow_dispatch: {}    # kézzel is indítható teszteléshez
+
+jobs:
+  kuldes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Aznapi PDF-ek kuldese
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          # Ide írd a címzettet (több cím vesszővel elválasztva is mehet):
+          RECIPIENT: "habinabeata82@gmail.com,vargazoltan19821231@gmail.com"
+        run: python scripts/send_daily.py
